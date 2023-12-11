@@ -245,7 +245,7 @@ abstract class Mumsys_Service_Vdr_Abstract
                 'PLAY', 'PLUG', 'PUTE', 'REMO', 'SCAN',
                 'STAT', 'UPDT', 'UPDR', 'VOLU', 'QUIT',
             ),
-            // e.g: 'PLUG EPGSEARCH LSTS' ?
+            // e.g: 'PLUG EPGSEARCH LSTS' (svdrpsend -d localhost plug epgsearch lsts) ?
             'EPGSEARCH' => array(
                 'LSTS', 'NEWS', 'DELS', 'EDIS', 'MODS',
                 'UPDS', 'UPDD', 'SETS', 'FIND', 'QRYS',
@@ -259,6 +259,7 @@ abstract class Mumsys_Service_Vdr_Abstract
 
         $command = strtoupper( $command );
 
+        /** @todo not only default! all available plugins to be checked */
         if ( !in_array( $command, $cmdlist['default'] ) ) {
             throw new Mumsys_Service_Exception( 'Command unknown or not implemented yet. Exiting' );
         }
